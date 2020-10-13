@@ -1,0 +1,6 @@
+<p>Enter the url wood like to shortened:</p>
+
+<%= form_for Link.new , url: '/links' do |f| %>
+  <%= f.text_area :original_url %>
+  <%= f.submit "Get Short Url" %>
+<% end %>  
