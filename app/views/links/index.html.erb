@@ -1,6 +1,37 @@
 <p>Enter the url wood like to shortened:</p>
 
-<%= form_for Link.new , url: '/links' do |f| %>
+<%= form_for Link.new , url: '/links', remote: true do |f| %>
   <%= f.text_area :original_url %>
   <%= f.submit "Get Short Url" %>
 <% end %>  
+
+
+<div id="link">
+	
+</div>
+
+
+
+
+<h1>Links</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Code</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @links.each do |a| %>
+      <tr>
+        <td><%= link_to a.id, "/#{a.code}" %></td>
+        <td><%= a.code %></td>
+        <td><%= a.link.analytic.country %></td>
+        <td><%= link_to "Analytics", analytics_link_path(a)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
