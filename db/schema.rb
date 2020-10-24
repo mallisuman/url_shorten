@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_043727) do
+ActiveRecord::Schema.define(version: 2020_10_15_020733) do
+
+  create_table "analytics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "count_click"
+    t.string "ip_address"
+    t.string "country"
+    t.string "link_id"
+  end
 
   create_table "links", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "original_url"

@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   root 'links#index'
-  resources :links
+  resources :links do
+  	get :analytics, on: :member
+  end
 
   get '/:abc', to: 'links#send_to_url'
+
+  # post '/:xyz'  to: 'links#show'
+
 end
 
